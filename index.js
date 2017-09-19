@@ -15,10 +15,15 @@ const readFile = () => {
     return Rx.Observable.create(subscriber => {
         glob(FILE_PATH + "/*.csv", {}, (er, files) => {
             files.map((file) => {
-                let data = xlsx.parse(path.join(__dirname, file));
-                data[0].name = path.basename(file).split('.')[0];
-                resultSheets.push(data[0]);
-                subscriber.next({});
+                try {
+                    let data = xlsx.parse(path.join(__dirname, file));
+                    data[0].name = path.basename(file).split('.')[0];
+                    resultSheets.push(data[0]);
+                    subscriber.next({});
+                } catch(err) {
+                    winston.error('=== Parse file failed(%s):', file, err);
+                    subscriber.error(err);
+                }
             });
 
             subscriber.complete();

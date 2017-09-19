@@ -2,17 +2,36 @@
   "name": "mergexls",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack",
+    "start": "./node_modules/.bin/electron ."
   },
   "author": "Keanu Pang",
   "license": "ISC",
   "dependencies": {
+    "@blueprintjs/core": "^1.28.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "electron-drag": "^1.2.0",
+    "electron-reload": "^1.2.1",
     "glob": "^7.1.2",
     "lodash": "^4.17.4",
     "node-xlsx": "^0.11.0",
+    "react": "^15.6.1",
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-dom": "^15.6.1",
     "rxjs": "^5.4.3",
     "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "electron": "^1.7.5",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
   }
 }
